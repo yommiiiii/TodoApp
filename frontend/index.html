@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 40px 20px 20px; /* 위쪽 공백 추가 */
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        .date-picker {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .date-picker label {
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .date-picker input {
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            width: 100%;
+            text-align: center;
+            display: block;
+            margin: 0 auto;
+        }
+        .todo-section, .daily-tasks, .notes-section, .reminder-section {
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            align-items: center;
+            background: #f8f8f8;
+            padding: 8px;
+            margin-bottom: 5px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        input[type="text"] {
+            border: none;
+            background: transparent;
+            flex-grow: 1;
+            margin-left: 10px;
+            padding: 5px;
+            font-size: 16px;
+        }
+        input[type="text"]:focus {
+            outline: none;
+        }
+        textarea {
+            width: 90%; /* Notes와 Reminder의 너비 감소 */
+            border-radius: 8px;
+            padding: 10px;
+            resize: none;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            background: #f8f8f8;
+            display: block;
+            margin: 0 auto;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TO DO LIST</h1>
+        <div class="date-picker">
+            <label for="date-picker">날짜 선택</label>
+            <input type="date" id="date-picker">
+        </div>
+        
+        <div class="todo-section">
+            <h2>To Do</h2>
+            <ul id="todo-list">
+                <li><input type="checkbox"><input type="text" class="todo-input" placeholder="할 일을 입력하세요"></li>
+                <li><input type="checkbox"><input type="text" class="todo-input" placeholder="할 일을 입력하세요"></li>
+                <li><input type="checkbox"><input type="text" class="todo-input" placeholder="할 일을 입력하세요"></li>
+                <li><input type="checkbox"><input type="text" class="todo-input" placeholder="할 일을 입력하세요"></li>
+                <li><input type="checkbox"><input type="text" class="todo-input" placeholder="할 일을 입력하세요"></li>
+            </ul>
+            <button id="add-todo">+ 추가</button>
+        </div>
+        
+        <div class="daily-tasks">
+            <h2>매일 해야 하는 일</h2>
+            <ul id="daily-list">
+                <li><input type="checkbox"><input type="text" class="daily-input" placeholder="매일 해야 할 일을 입력하세요"></li>
+                <li><input type="checkbox"><input type="text" class="daily-input" placeholder="매일 해야 할 일을 입력하세요"></li>
+                <li><input type="checkbox"><input type="text" class="daily-input" placeholder="매일 해야 할 일을 입력하세요"></li>
+            </ul>
+            <button id="add-daily">+ 추가</button>
+        </div>
+
+        <div class="notes-section">
+            <h2>Notes</h2>
+            <textarea id="notes" placeholder="메모를 입력하세요"></textarea>
+        </div>
+
+        <div class="reminder-section">
+            <h2>Reminder</h2>
+            <textarea id="reminder" placeholder="리마인더를 입력하세요"></textarea>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("add-todo").addEventListener("click", function () {
+                let ul = document.getElementById("todo-list");
+                let li = document.createElement("li");
+                li.innerHTML = '<input type="checkbox"><input type="text" class="todo-input" placeholder="할 일을 입력하세요">';
+                ul.appendChild(li);
+            });
+
+            document.getElementById("add-daily").addEventListener("click", function () {
+                let ul = document.getElementById("daily-list");
+                let li = document.createElement("li");
+                li.innerHTML = '<input type="checkbox"><input type="text" class="daily-input" placeholder="매일 해야 할 일을 입력하세요">';
+                ul.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>  
