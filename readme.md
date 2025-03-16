@@ -14,18 +14,17 @@ Docker를 활용하여 개발 환경을 컨테이너화하여 배포할 수 있�
 
 
 ## 📂 **프로젝트 구조**
-📁 TodoApp
-│── 📁 backend          # 백엔드 (Node.js, Express, Sequelize)
-│   ├── backend.js      # Express 서버 및 MySQL 연동
-│   ├── Dockerfile      # 백엔드 Docker 설정
-│   ├── package.json    # Node.js 종속성 관리
-│
-│── 📁 frontend         # 프론트엔드 (HTML, JavaScript)
-│   ├── index.html      # To-Do 리스트 UI
-│   ├── script.js       # 프론트엔드 로직
-│
-│── docker-compose.yml  # 전체 애플리케이션 도커 설정
-│── README.md           # 프로젝트 설명 파일
+📦 TodoApp
+ ┣ 📂 backend                # 백엔드 (Node.js, Express, Sequelize)
+ ┃ ┣ 📜 backend.js          # Express 서버 및 MySQL 연동
+ ┃ ┣ 📜 Dockerfile          # 백엔드 Docker 설정
+ ┃ ┣ 📜 package.json        # Node.js 종속성 관리
+ ┃ ┗ 📜 package-lock.json   # 종속성 잠금 파일
+ ┣ 📂 frontend               # 프론트엔드 (HTML, JavaScript)
+ ┃ ┣ 📜 index.html          # To-Do 리스트 UI
+ ┃ ┗ 📜 script.js           # 프론트엔드 로직
+ ┣ 📜 docker-compose.yml     # 전체 애플리케이션 도커 설정
+ ┗ 📜 README.md              # 프로젝트 설명 파일
 
 
 ## 🛠 **사용된 기술 스택**
@@ -49,18 +48,26 @@ Docker를 활용하여 개발 환경을 컨테이너화하여 배포할 수 있�
 
 ## 🔧 **설치 및 실행 방법**
 ### **1️⃣ 프로젝트 클론**
+```
 git clone https://github.com/사용자명/TodoApp.git
 cd TodoApp
+```
 
 ### **2️⃣ 백엔드 패키지 설치**
+```
 cd backend
 npm install
+```
 
 ### **3️⃣ Docker로 전체 애플리케이션 실행**
+```
 docker-compose up -d --build
+```
 
 ### **4️⃣ 실행 확인**
+```
 프론트엔드: http://127.0.0.1:5500/frontend/index.html
 백엔드 API: http://localhost:3000/todos
+```
 
 
